@@ -2,6 +2,7 @@ import express from "express";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
 import cors from "cors";
+import tweetRoutes from "./routes/tweetRoutes.js";
 
 dotenv.config();
 
@@ -20,6 +21,8 @@ mongoose
 app.get("/", (req, res) => {
   res.send("Server running successfully hahahahah");
 });
+
+app.use("/api/get",tweetRoutes);
 
 app.listen(PORT, () => {
   console.log(`Server listening on port ${PORT}`);
